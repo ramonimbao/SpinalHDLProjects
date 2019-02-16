@@ -49,6 +49,8 @@ class ShiftRegister extends Component {
 // Generate Verilog
 object ShiftRegisterVerilog {
 	def main(args: Array[String]): Unit = {
-		SpinalConfig(targetDirectory = "output/ShiftRegister").generateVerilog(new ShiftRegister)
+		val target_directory = "output/ShiftRegister"
+		new java.io.File(target_directory).mkdirs()
+		SpinalConfig(targetDirectory = target_directory).generateVerilog(new ShiftRegister)
 	}
 }

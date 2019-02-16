@@ -48,6 +48,8 @@ class Blink extends Component {
 // Generate Verilog
 object BlinkVerilog {
 	def main(args: Array[String]): Unit = {
-		SpinalConfig(targetDirectory = "output/Blink").generateVerilog(new Blink)
+		val target_directory = "output/Blink"
+		new java.io.File(target_directory).mkdirs()
+		SpinalConfig(targetDirectory = target_directory).generateVerilog(new Blink)
 	}
 }
